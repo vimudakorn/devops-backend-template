@@ -5,7 +5,7 @@ on:
       - "v[0-9]+.[0-9]+.[0-9]+"
 env:
   APP_NAME: "gitops-backend"
-  NAMESPACE: "app-prod-<GROUP-NUMBER>"
+  NAMESPACE: "app-prod-13"
 jobs:
   build:
     runs-on: "ubuntu-latest"
@@ -41,7 +41,7 @@ jobs:
         - name: 'Checkout'
           uses: 'actions/checkout@v4'
           with:
-            repository: <YOUR_GITHUB_USERNAME>/k8s-manifest
+            repository: vimudakorn/k8s-manifest
             token: ${{ secrets.GH_PAT }}
             path: k8s-manifest
 
@@ -63,4 +63,4 @@ jobs:
             git config --global user.email "github-actions@github.com"
             git add projects/gitops-backend/vars/vars.json
             git commit -m "Update version ${{ env.APP_NAME }} in namespace ${{ env.NAMESPACE }} to $VERSION"
-            git push <YOUR_GITHUB>/k8s-manifest.git HEAD:main
+            git push vimudakorn/k8s-manifest.git HEAD:main
