@@ -63,4 +63,4 @@ jobs:
             git config --global user.email "github-actions@github.com"
             git add projects/gitops-backend/vars/vars.json
             git commit -m "Update version ${{ env.APP_NAME }} in namespace ${{ env.NAMESPACE }} to $VERSION"
-            git push vimudakorn/k8s-manifest.git HEAD:main
+            git push origin main
